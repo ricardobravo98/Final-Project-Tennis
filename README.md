@@ -17,4 +17,6 @@ This is my final Project of the Data Analysis Bootcamp at Ironhack where I am us
 
 **Web Scraping:** The actual Web Scraping code of all the data I initially used, and APIs I used. The end Dataset is at the very end
 
+**Streamlit**: The code is available to actually run the Streamlit App as I showed in the presentation
+
 Hope you are ready to make some money
