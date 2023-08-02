@@ -52,19 +52,8 @@ UPDATE tennis_players SET Atp_points = REPLACE(Atp_points, ',', '') WHERE Atp_po
 ALTER TABLE tennis_players
 MODIFY COLUMN Atp_points INT;
 
-
-ALTER TABLE tennis_players
-MODIFY COLUMN Atp_points INT NULL,
-MODIFY COLUMN title_year INT NULL,
-MODIFY COLUMN Aces INT NULL,
-MODIFY COLUMN `Double Faults` INT NULL,
-MODIFY COLUMN `Break Points Faced` INT NULL,
-MODIFY COLUMN `Break Points Opportunities` INT NULL,
-MODIFY COLUMN `Return Games Played` INT NULL;
-
 Select * from tennis_players
 Limit 5;
-
 
 ## We need to Alter the table names because whenever it says year, Sql thinks it´s a function
 ALTER TABLE tennis_players
@@ -81,7 +70,16 @@ CHANGE COLUMN `Title Year` title_year Int;
 Select * from tennis_players
 Limit 5;
 
-#Let´s do some queries on the top servers
+#Let´s do some queries on the top servers, but first change the type to integer in order for it to work properly
+
+ALTER TABLE tennis_players
+MODIFY COLUMN aces VARCHAR(10); 
+
+UPDATE tennis_players
+SET aces = REPLACE(aces, ',', '');
+
+ALTER TABLE tennis_players
+MODIFY COLUMN aces INT NULL;
 
 #I want to rank the top servers
 SELECT
@@ -116,6 +114,8 @@ ORDER BY wins_year DESC;
 #Rerun to check everything    
 Select * from tennis_players
 Limit 5;
+
+
 
 
 
