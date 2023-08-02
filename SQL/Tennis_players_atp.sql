@@ -94,6 +94,32 @@ FROM tennis_players t1
 ORDER BY aces DESC
 LIMIT 20;
 
+Select * from tennis_players
+Limit 5;
+
+-- Assuming your existing column is called 'original_column'
+-- and your table is called 'your_table'
+
+## Creating new columns
+ALTER TABLE tennis_players
+ADD COLUMN wins_year INT,
+ADD COLUMN loss_year INT;
+
+##Fill columns with the wins and the losses of the year
+UPDATE tennis_players
+SET wins_year = CONVERT(SUBSTRING_INDEX(w_l_year, '-', 1), UNSIGNED),
+    loss_year = CONVERT(SUBSTRING_INDEX(w_l_career, '-', -1), UNSIGNED);
+    
+##Now do another query ranking players by wins in this year
+SELECT players, wins_year
+FROM tennis_players
+ORDER BY wins_year DESC;
+
+#Rerun to check everything    
+Select * from tennis_players
+Limit 5;
+
+
 
 
 
