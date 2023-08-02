@@ -97,8 +97,6 @@ LIMIT 20;
 Select * from tennis_players
 Limit 5;
 
--- Assuming your existing column is called 'original_column'
--- and your table is called 'your_table'
 
 ## Creating new columns
 ALTER TABLE tennis_players
